@@ -31,24 +31,15 @@ fi
 # apt-get upgrade
 # apt-get install -y $LIST_OF_APPS
 
-cd $ABS_PATH
+git clone https://github.com/tmux-plugins/tpm $ABS_PATH/.config/tmux/plugins/tpm
 
-git clone https://github.com/tmux-plugins/tpm ./.config/tmux/plugins/tpm
-
-git clone https://github.com/interactive-toast/dotconfig ./.config
+git clone https://github.com/interactive-toast/dotconfig $ABS_PATH/.config
 
 # removes the following files if they are there
-trash ./.config ./.bashrc ./.bash_logout ./.profile ./.inputrc ./.bash_profile ./.hushlogin
+trash $ABS_PATH/.config $ABS_PATH/.bashrc $ABS_PATH/.bash_logout $ABS_PATH/.profile $ABS_PATH/.inputrc $ABS_PATH/.bash_profile $ABS_PATH/.hushlogin
 
 # symlink the files that belong directly in the home dir
-find ./.config/home_folder_files/ -mindepth 1 -path "*" -exec ln -s {} "$ABS_PATH" \;
-
-# don't need these files cluttering up a normal install
-rm ./.config/LICENSE
-rm ./.config/README.md
-
-# return working directory to where we called from
-cd -
+find $ABS_PATH/.config/home_folder_files/ -mindepth 1 -path "*" -exec ln -s {} "$ABS_PATH" \;
 
 # Deletes this file after running
 rm -- "$0"
