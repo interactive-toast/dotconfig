@@ -1,0 +1,29 @@
+[user]
+	email = 5768325+interactive-toast@users.noreply.github.com
+	name = interactive-toast
+
+[alias]
+	df = diff -U1	
+	dw = diff -U1 --word-diff	
+	dt = difftool
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	gr = log --all --graph --decorate --oneline --simplify-by-decoration
+	tree = !tree -a -I '.git'
+	patch = add -p
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+	chardf = diff --word-diff=color --word-diff-regex=.
+
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[init]
+	defaultBranch = main
