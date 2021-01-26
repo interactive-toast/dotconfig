@@ -20,23 +20,15 @@ then
 	  exit 1
 fi
 
-# check if root
-if [ "$EUID" -ne 0 ]
-then 
-	echo "Please run as root"
-	exit 1
-fi
-
-# apt-get update
-# apt-get upgrade
-# apt-get install -y $LIST_OF_APPS
-
-git clone https://github.com/tmux-plugins/tpm $ABS_PATH/.config/tmux/plugins/tpm
-
-git clone https://github.com/interactive-toast/dotconfig $ABS_PATH/.config
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install -y $LIST_OF_APPS
 
 # removes the following files if they are there
-trash $ABS_PATH/.config $ABS_PATH/.bashrc $ABS_PATH/.bash_logout $ABS_PATH/.profile $ABS_PATH/.inputrc $ABS_PATH/.bash_profile $ABS_PATH/.hushlogin
+trash $ABS_PATH/.config $ABS_PATH/.bashrc $ABS_PATH/.bash_logout $ABS_PATH/.profile $ABS_PATH/.inputrc $ABS_PATH/.bash_profile $ABS_PATH/.hushlogin > /dev/null
+
+git clone https://github.com/interactive-toast/dotconfig $ABS_PATH/.config
+git clone https://github.com/tmux-plugins/tpm $ABS_PATH/.config/tmux/plugins/tpm
 
 # symlink the files that belong directly in the home dir
 find $ABS_PATH/.config/home_folder_files/ -mindepth 1 -path "*" -exec ln -s {} "$ABS_PATH" \;
