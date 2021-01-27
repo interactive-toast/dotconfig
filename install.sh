@@ -25,13 +25,17 @@ sudo apt-get upgrade
 sudo apt-get install -y $LIST_OF_APPS
 
 # removes the following files if they are there
-trash $ABS_PATH/.config $ABS_PATH/.bashrc $ABS_PATH/.bash_logout $ABS_PATH/.profile $ABS_PATH/.inputrc $ABS_PATH/.bash_profile $ABS_PATH/.hushlogin > /dev/null
+sudo trash $ABS_PATH/.config $ABS_PATH/.bashrc $ABS_PATH/.bash_logout $ABS_PATH/.profile $ABS_PATH/.inputrc $ABS_PATH/.bash_profile $ABS_PATH/.hushlogin > /dev/null
 
 git clone https://github.com/interactive-toast/dotconfig $ABS_PATH/.config
 git clone https://github.com/tmux-plugins/tpm $ABS_PATH/.config/tmux/plugins/tpm
 
 # symlink the files that belong directly in the home dir
 find $ABS_PATH/.config/home_folder_files/ -mindepth 1 -path "*" -exec ln -s {} "$ABS_PATH" \;
+
+
+# install vim-plug plugin manager
+curl -fLo $ABS_PATH/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Deletes this file after running
 rm -- "$0"
