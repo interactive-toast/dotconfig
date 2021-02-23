@@ -27,3 +27,7 @@
 	prompt = false
 [init]
 	defaultBranch = main
+[core]
+	pager = less -
+[color]
+	pager = yes

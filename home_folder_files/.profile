@@ -9,9 +9,6 @@
 #umask 022
 
 
-export EDITOR='nvim'
-export VISUAL='nvim'
-export TEXEDIT="$EDITOR"
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
@@ -19,8 +16,6 @@ if [ -n "$BASH_VERSION" ]; then
 	. "$HOME/.bashrc"
     fi
 fi
-
-#. "$HOME/dotfiles/bootstrap.sh" -f > /dev/null
 
 cd $HOME
 # set PATH so it includes user's private bin if it exists
@@ -33,7 +28,7 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# set PATH so it includes user's private bin if it exists
+# set PATH so it includes go bin
 if [ -d "/usr/local/go/bin" ] ; then
 	PATH="$PATH:/usr/local/go/bin"
 fi
