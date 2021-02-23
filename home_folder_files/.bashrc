@@ -19,7 +19,7 @@ if [[ "$(command -v nvim)" ]]; then
 	export EDITOR='nvim'
 	export VISUAL='nvim'
 	export TEXEDIT="$EDITOR"
-	export MANPAGER='nvim -c 'set ft=man''
+	export MANPAGER='nvim +Man!'
 	export MANWIDTH=999
 fi
 
