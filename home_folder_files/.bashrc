@@ -23,22 +23,4 @@ if [[ "$(command -v nvim)" ]]; then
 	export MANWIDTH=999
 fi
 
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
-
-alias l='ls -a1F --color=auto'
-alias ll='ls -hal --color=auto'
-alias ls='ls --color=auto'
-alias clear='clear && echo Use Ctrl+l instead!'
-alias rm='echo You should use trash-cli! && rm'
-
-alias weather='curl http://wttr.in/'
-
-alias serial='picocom /dev/ttyS14 -b 115200'
-
-alias encrypt='gpg --symmetric --cipher-algo AES256'
-alias decrypt='gpg --decrypt'
-alias randalnum="cat /dev/urandom | tr -dc 'a-z0-9' | fold -w ${1:-32} | head -n 1"
+source $HOME/.shell_aliases

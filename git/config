@@ -20,6 +20,8 @@
 	dump = cat-file -p
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 	chardf = diff --word-diff=color --word-diff-regex=.
+	skip = update-index --skip-worktree 
+	noskip = update-index --no-skip-worktree 
 
 [diff]
 	tool = vimdiff
