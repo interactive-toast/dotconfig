@@ -34,3 +34,7 @@
 	pager = less -
 [color]
 	pager = yes
+[pull]
+	ff = only
+[merge]
+	ff = false

@@ -8,3 +8,5 @@ let g:coc_global_extensions = [
 			\ 'coc-highlight',
 			\ 'coc-clangd'
 			\ ]
+
+			" \ 'coc-rls',

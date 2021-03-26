@@ -3,7 +3,8 @@
 LIST_OF_APPS="cmake clangd nodejs npm neovim git gcc tree curl wget htop 
 openssh-client zip unzip clang-format-10 clang-10 clangd-10 clang-tidy-10 
 tmux cmus tty-clock picocom make whois texlive-latex-recommended tree qrencode 
-imagemagick-6.q16hdri trash-cli stlink-tools rclone rsync golang-go"
+imagemagick-6.q16hdri trash-cli stlink-tools rclone rsync golang-go
+ripgrep"
 
 read -e -p "Enter the relative path of your home directory:"$'\n' RELATIVE_PATH
 #check if path is not empty string
