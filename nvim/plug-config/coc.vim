@@ -6,7 +6,6 @@ let g:coc_global_extensions = [
 			\ 'coc-css',
 			\ 'coc-yaml',
 			\ 'coc-highlight',
+			\ 'coc-rls',
 			\ 'coc-clangd'
 			\ ]
-
-			" \ 'coc-rls',

@@ -24,3 +24,4 @@ if [[ "$(command -v nvim)" ]]; then
 fi
 
 source $HOME/.shell_aliases
+source "$HOME/.cargo/env"
