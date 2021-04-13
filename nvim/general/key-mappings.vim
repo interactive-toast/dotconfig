@@ -15,6 +15,10 @@ nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 
+"These are for fzf
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
