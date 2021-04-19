@@ -33,4 +33,4 @@ if [ -d "/usr/local/go/bin" ] ; then
 	PATH="$PATH:/usr/local/go/bin"
 fi
 
-source "$HOME/.cargo/env"
+# source "$HOME/.cargo/env"

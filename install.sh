@@ -1,10 +1,20 @@
 #!/bin/bash
 
+# Other apps to install manually:
+# mullvad
+# virtualbox
+# dropbox
+# cryptomator
+# Kolourpaint
+# gnome extensions: lock screen background, panel time format
+# navi, command line cheat sheet tool
+# fzf, fz, z, and fzf.vim
 LIST_OF_APPS="cmake clangd nodejs npm neovim git gcc tree curl wget htop 
 openssh-client zip unzip clang-format-10 clang-10 clangd-10 clang-tidy-10 
 tmux cmus tty-clock picocom make whois texlive-latex-recommended tree qrencode 
 imagemagick-6.q16hdri trash-cli stlink-tools rclone rsync golang-go
-ripgrep keepassxc gnome-tweaks yubikey-manager vlc"
+ripgrep keepassxc gnome-tweaks yubikey-manager yubico-piv-tool vlc speedcrunch qbittorrent
+kdenlive gimp"
 
 read -e -p "Enter the relative path of your home directory:"$'\n' RELATIVE_PATH
 #check if path is not empty string

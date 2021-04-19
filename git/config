@@ -24,6 +24,18 @@
 	unskip = update-index --no-skip-worktree 
 	skipped = !git ls-files -v | grep "^S"
 
+	# might want to clean this up later
+	# Output the current branch name
+	get-branch = !git rev-parse --abbrev-ref HEAD
+
+	# Shortcut to push to the current branch and set it to track the upstream branch.
+	publish = !git push -u origin $(git get-branch)
+
+	# Shortcut to add, commit and push in one command.
+	shove = "!f() { \
+			git commit -m \"$1\" && $(git publish); \
+		}; f"
+
 [diff]
 	tool = vimdiff
 [difftool]
@@ -32,6 +44,8 @@
 	defaultBranch = main
 [core]
 	pager = less -
+[pager]
+    status = true
 [color]
 	pager = yes
 [pull]

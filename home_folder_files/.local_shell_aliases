@@ -1,1 +1,1 @@
-alias cloud='cd $HOME'
+alias cryptomator='/home/dhope/Apps/cryptomator-1.5.14-x86_64.AppImage > /dev/null 2>&1 &'

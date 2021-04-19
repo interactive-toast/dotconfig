@@ -1,6 +1,16 @@
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
 	[[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux new-session -A -s main
+	read -p "Start tmux(Y/n)? " answer
+	answer=${answer:-y}
+
+	if [ "$answer" != "${answer#[Yy]}" ] ;then
+		ATTACH_OPT=$(tmux ls | grep -vq attached && echo "attach -d")
+		TMUX_COMMAND="tmux $ATTACH_OPT"
+		exec $TMUX_COMMAND
+		# exec tmux new-session -A -s main
+	else
+		echo No
+	fi
 fi
 
 #PS1="\e[37;1m\u@\e[35m\w\e[0m\$ "
@@ -25,3 +35,15 @@ fi
 
 source $HOME/.shell_aliases
 source "$HOME/.cargo/env"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+if [ -d ~/.bash_completion.d ]; then
+  for file in ~/.bash_completion.d/*; do
+    . $file
+  done
+fi
+
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
