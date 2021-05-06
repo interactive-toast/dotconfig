@@ -30,3 +30,6 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+map <F1> <Esc>
+imap <F1> <Esc>

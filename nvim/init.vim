@@ -8,6 +8,7 @@ source $HOME/.config/nvim/general/key-mappings.vim
 
 source $HOME/.config/nvim/plug-config/signify.vim
 source $HOME/.config/nvim/plug-config/coc.vim
+source $HOME/.config/nvim/plug-config/fzf.vim
 
 "===================figure out a better place for this=============
 " map <C-K> :py3f /usr/share/clang/clang-format-10/clang-format.py<cr>
