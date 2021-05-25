@@ -23,18 +23,18 @@
 	skip = update-index --skip-worktree 
 	unskip = update-index --no-skip-worktree 
 	skipped = !git ls-files -v | grep "^S"
+	timestamp = "!f() { git commit --amend --date=\"$1\" --no-edit; }; f"
 
 	# might want to clean this up later
 	# Output the current branch name
 	get-branch = !git rev-parse --abbrev-ref HEAD
 
+	ahead = "!f() { echo \"behind | ahead\" && git rev-list --left-right --count $1...$(git get-branch); }; f"
 	# Shortcut to push to the current branch and set it to track the upstream branch.
-	publish = !git push -u origin $(git get-branch)
+	publish = "!f() { git push -u origin $(git get-branch); }; f"
 
 	# Shortcut to add, commit and push in one command.
-	shove = "!f() { \
-			git commit -m \"$1\" && $(git publish); \
-		}; f"
+	shove = "!f() {	git add -A && git commit -m \"$@\" && $(git publish); }; f"
 
 [diff]
 	tool = vimdiff
