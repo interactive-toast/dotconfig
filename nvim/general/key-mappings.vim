@@ -9,6 +9,9 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 
+"search for visually selected text
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
 "make new tab
 nnoremap <leader>t :tabnew<CR>
 
@@ -21,10 +24,15 @@ nnoremap <leader>l <C-w>l
 
 "This is for interactive Ripgrep (comes with fzf.vim)
 nnoremap <leader>r :Rg<CR>
+"Rg the current word
+nnoremap <silent> <Leader>w :Rg <C-R><C-W><CR>
 
 "These are for fzf
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>b :Buffers<CR>
+
+" Reload vims configuration file
+nnoremap confr :source $MYVIMRC<CR>
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
