@@ -1,15 +1,18 @@
+#if we are not already in a tmux or screen session
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
 	[[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+	#then get input
 	read -p "Start tmux(Y/n)? " answer
+	#if only a carriage return, set default to y
 	answer=${answer:-y}
 
+	#if yes, attach to an existing session that isn't already attached, otherwise
+	#make a new session
 	if [ "$answer" != "${answer#[Yy]}" ] ;then
 		ATTACH_OPT=$(tmux ls | grep -vq attached && echo "attach -d")
 		TMUX_COMMAND="tmux $ATTACH_OPT"
 		exec $TMUX_COMMAND
 		# exec tmux new-session -A -s main
-	else
-		echo No
 	fi
 fi
 
@@ -45,5 +48,5 @@ if [ -d ~/.bash_completion.d ]; then
 fi
 
 export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpgconf --launch gpg-agent
+export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+gpg-connect-agent /bye > /dev/null
