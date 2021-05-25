@@ -6,9 +6,9 @@
 /* outline color */
 #define OUTLINE #ffffff00
 /* number of bars (use even values for best results) */
-#define NBARS 90
+#define NBARS 180
 /* width (in pixels) of each bar*/
-#define BAR_WIDTH 6.5
+#define BAR_WIDTH 3.5
 /* outline color */
 #define BAR_OUTLINE OUTLINE
 /* outline width (in pixels, set to 0 to disable outline drawing) */
@@ -16,11 +16,9 @@
 /* Amplify magnitude of the results each bar displays */
 #define AMPLIFY 300
 /* How strong the gradient changes */
-#define GRADIENT_POWER 30
+#define GRADIENT_POWER 60
 /* Bar color changes with height */
 #define GRADIENT (d / GRADIENT_POWER + 1)
-/* Bar color changes with time */
-/* define TIMESHIFT (sin(t)) */
 /* Bar color */ 
 #define COLOR (#086a87 * GRADIENT)
 
@@ -31,7 +29,7 @@
 */
 
 /* Angle (in radians) for how much to rotate the visualizer */
-#define ROTATE (PI / 3)
+#define ROTATE (PI / 2)
 /* Whether to switch left/right audio buffers */
 #define INVERT 0
 /* Aliasing factors. Higher values mean more defined and jagged lines.
@@ -46,7 +44,7 @@
 #define CENTER_OFFSET_X 0
 
 /* Gravity step, override from `smooth_parameters.glsl` */
-#request setgravitystep 8.0
+#request setgravitystep 4.0
 
 /* Smoothing factor, override from `smooth_parameters.glsl` */
 #request setsmoothfactor 0.02
