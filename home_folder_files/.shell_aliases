@@ -5,7 +5,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
-alias l='ls -a1F --color=auto'
+alias l='ls -a1F --group-directories-first --color=auto'
 alias ll='ls -hal --color=auto'
 alias ls='ls --color=auto'
 alias clear='clear && echo Use Ctrl+l instead!'
@@ -17,6 +17,8 @@ alias rm='echo You should use trash-cli! && rm'
 #-X: do not use init/deinit strings; in other words: do not clear the screen
 #-K: exit less in response to Ctrl-C (^C)
 alias less='less -RMFXK'
+
+# alias bat='bat --paging never'
 
 rg() {
     if [ -t 1 ]; then
@@ -36,5 +38,8 @@ alias randalnum="cat /dev/urandom | tr -dc 'a-z0-9' | fold -w ${1:-32} | head -n
 alias geoip='geoiplookup'
 
 alias audiovis='glava'
+
+alias clip='xclip -sel clip'
+alias cat='bat --paging auto'
 
 source $HOME/.local_shell_aliases
